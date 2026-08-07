@@ -35,3 +35,25 @@ const myFunction = function(){
 
 console.log(typeof scoreValue )
 console.log(typeof myfunction)
+
+//---------------------------------------------------------
+
+// Stack (Primitive) , Heap (Non-Primitive)
+
+let myYoutubename = "bhargav.com"
+
+let anothername = myYoutubename
+anothername="abc.com"
+
+console.log(myYoutubename)
+console.log(anothername); // see here it gets copy and both have different value 
+
+
+let user1 = {
+    email:"adinenibhargav0@gmail.com",
+    age:18
+}
+let user2 = user1;
+user2.email="abc@gmail.com"
+console.log(user1.email);
+console.log(user2.email) // here on changing user2 it changes user1 also because it by reference
