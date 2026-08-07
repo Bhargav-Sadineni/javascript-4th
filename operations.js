@@ -34,3 +34,5 @@ let gameCounter = 100
 gameCounter++; // postfix increment here it increments and returns value before incrementing
 ++gameCounter;// prefix increments and returns the value after incrementing
 console.log(gameCounter);
+
+
