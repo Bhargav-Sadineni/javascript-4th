@@ -1,0 +1,8 @@
+window
+ window document or document
+ console.log(document or window.document)  to get the infration about the html
+ console..dir(document) // get extra information in document with html also
+
+ console.log(documents.links)
+
+ document.getElementById('id').innerHtml = "<h1>hello</h1>
