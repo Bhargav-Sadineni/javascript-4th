@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""  ></li>
+            <!-- apporach 1 onclick="alert('owl')" -->
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+</body>
+<script>
+    // invoked by activity
+    // approach 2
+    // document.getElementById('owl').onclick = function(){
+    //     alert("owl clicked")
+    // } // this gives less features
+
+    // attachEvent()
+    //jQuery - using on event
+
+    // document.getElementById('owl').addEventListener('click',function(e){ // we get an event object
+
+    //     // alert('owl clicked again')
+
+    //     console.log(e);  // we get the browser events and environment events
+    // },false) // what is false, false is default
+    // flase - event bubbling and true - event capturing
+
+    //type, timestamp,defaultPrevented
+    // target,toElement, srcElement, currentTarget
+    // clientX,clientY, screenX,screenY, position related ones also
+    // altkey,ctrlkey,shiftkey,keyCode
+
+    //event propagation
+    // document.getElementById('images').addEventListener('click',function(e){
+    //     console.log("clicked inside the ul")
+    // },false)
+
+    // document.getElementById('owl').addEventListener('click',function(e){ 
+    //     console.log("owl clicked");  
+    // },false)
+
+    // observe here owl is also in ul and if you click on owl which will print first
+    // here bubbling happens goes from bottom to up inner components to outer so first owl event occur and then ul clicked event occur this is called event propagation
+
+    // document.getElementById('images').addEventListener('click',function(e){
+    //     console.log("clicked inside the ul")
+    // },true)
+
+    // document.getElementById('owl').addEventListener('click',function(e){ 
+    //     console.log("owl clicked");  
+    // },true)
+
+    // now on capturing mode goes from top to bottom
+
+
+
+    // document.getElementById('images').addEventListener('click',function(e){
+    //     console.log("clicked inside the ul")
+    // },false)
+
+    // document.getElementById('owl').addEventListener('click',function(e){ 
+    //     console.log("owl clicked");  
+    //     e.stopPropagation()
+    // },false)
+
+    // document.getElementById('google').addEventListener('click',function(e){
+    //     e.preventDefault()
+    //     e.stopPropagation()
+    //     console.log("google clicked")
+        
+    // },false)
+
+    // if i click on image it should disappear
+
+    document.querySelector('#images').addEventListener('click',function(e){
+        console.log(e.target)
+        console.log(e.target.parentNode)
+        console.log(e.target.tagName)
+        console.log(e.target.parentNode.parentNode)
+        // let removeIt = e.target.parentNode
+        // // removeIt.remove()
+        // removeIt.parentNode.removeChild(removeIt)
+        // here if you click side of google it removes all the images?
+        // then it goes to li and its parent is ul and we said to remove it so all the images are gone
+        // use tagName
+        if(e.target.tagName === 'IMG'){
+            console.log(e.target.id)
+            let removeIt = e.target.parentNode
+            removeIt.remove()
+        }
+        /*
+            The browser reads your HTML file.
+
+            It creates a DOM (Document Object Model) in memory.
+
+            Your JavaScript modifies that DOM.
+
+            When you press Reload, the browser throws away the current DOM and reads the original HTML file again.
+
+            Since the HTML file still contains the image, it appears again.
+
+            to remove it permanently use local storage or fetch etc
+        */
+    })
+
+
+
+</script>
+</html>

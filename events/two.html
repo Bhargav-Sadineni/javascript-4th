@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Bhargav</h1>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    const bhargav = function(){
+        console.log("bhargav");
+    }
+
+    const change = function(){
+        document.querySelector('h1').innerHTML="js"
+    }
+
+    // setTimeout(change,3000) // executes only one and after that time
+    // where as setInterval executes for every 3 seconds
+    // setTimeout(bhargav,2000)// availiable through browser
+    //handler,callback etc terms means
+
+    // what if i want to stop the settimeout before executing
+    const changeMe = setTimeout(change,3000)
+    /*
+    Call setTimeout immediately.
+
+    setTimeout tells the browser: “Run change after 3000 ms.”
+
+    setTimeout returns a timer ID.
+
+    That timer ID is stored in changeMe.*/
+
+    document.querySelector('#stop').addEventListener('click',function(){
+        clearTimeout(changeMe)
+        console.log("stopped")
+    })
+</script>
+</html>

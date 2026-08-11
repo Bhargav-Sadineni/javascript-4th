@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Bhargav Sadineni</h1>
+    <button id="start">start</button>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    /*// setInterval(function(){
+    //     console.log("bhargav",Date.now())
+    // },1000)
+
+    // const print = function(){
+    //     console.log("bhargav",Date.now())
+    // }
+
+    const print = function(str){
+        console.log(str,Date.now())
+    }
+    const interval = setInterval(print,1000,"hi")
+
+    clearInterval(interval) // stops interval*/
+
+    // generate a random color
+    const randomColor = function(){
+        const hex = "0123456789ABCDEF"
+        let color = '#'
+        for(let i=0;i<6;i++){
+            // console.log(Math.floor(Math.random()*16))
+            color+=hex[Math.floor(Math.random()*16)]
+        }
+        return color;
+    }
+
+    // console.log(randomColor()) every time give random color
+
+
+    let interval
+
+    const startChangingColor = function(){
+        // document.body.style.backgroundColor = randomColor(); if you click on start every time color changes
+        // using setinterval it changes automatically
+        function changeBack(){
+            document.body.style.backgroundColor = randomColor();
+        }
+        if (!interval) {  // why we are writing this
+            interval = setInterval(changeBack,100)
+        }
+    }
+
+    const stopChangingColor = function(){
+        clearInterval(interval)
+        interval=null // stops overwriting why it is not stoping on adding this
+    }
+    document.querySelector("#start").addEventListener('click',startChangingColor)
+    document.querySelector('#stop').addEventListener('click',stopChangingColor)
+    
+
+</script>
+</html>
