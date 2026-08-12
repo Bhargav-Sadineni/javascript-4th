@@ -1,0 +1,46 @@
+<!-- // xml http -->
+ <!-- please study xmlhttprequest in detail  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    
+</body>
+<script>
+    const reqUrl = 'https://api.github.com/users/Bhargav-Sadineni'
+    const xhr = new XMLHttpRequest()
+    xhr.onreadystatechange = function(){
+        console.log(xhr.readyState)
+        // if(xhr.readyState===4){
+        //     // console.log(this.responseText)
+            
+        // }
+        // if i want to know the fallowers of bhargva how 
+        
+
+        if(xhr.readyState===4){
+            // const data = this.responseText // returns response
+            // console.log(data); // shows data why not data.followers works?            
+            // // console.log(data.followers)
+            // console.log(typeof data)  // sstring why ? most of the times response is came as string
+
+            // convert the string to json
+            const data = JSON.parse(this.responseText)
+            console.log(data)
+            console.log(typeof data);
+            console.log(data.followers)
+
+        }
+    }
+
+    // does console.log is the part of javascript?
+    xhr.open('GET',reqUrl)
+    // console.log("here")
+    // console.log(xhr.readyState)
+    xhr.send()
+</script>
+</html>
